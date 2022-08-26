@@ -1,5 +1,11 @@
 "use strict";
-const getFullName = (firstname, surname) => {
-    return `${firstname} ${surname}`;
+const getFullName = (userEntity) => {
+    return `${userEntity.firstname} ${userEntity.surname}`;
 };
-console.log(getFullName('Elon', 'Musk'));
+const user = {
+    firstname: 'Pavel',
+    surname: 'Tomilin',
+    country: 'RU',
+    age: 29,
+};
+console.log(getFullName(user));
