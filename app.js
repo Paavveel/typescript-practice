@@ -1,2 +1,7 @@
 "use strict";
-const a = 1;
+let revenue = 1000;
+let bonus = 500;
+let c = 'string';
+let d = true;
+let result = revenue + bonus;
+console.log(result);
