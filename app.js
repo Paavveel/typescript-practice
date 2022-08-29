@@ -1,6 +1,8 @@
 "use strict";
-const fetchWithAuth = (url, method) => {
-    return 1;
+// Type Aliases
+const user = {
+    id: 1,
+    name: 'Pavel',
+    age: 29,
+    skills: ['TypeScript'],
 };
-let method = 'post';
-fetchWithAuth('s', method);

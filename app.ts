@@ -1,7 +1,20 @@
-const fetchWithAuth = (url: string, method: 'post' | 'get'): 1 | -1 => {
-  return 1;
+// Type Aliases
+
+type User = {
+  name: string;
+  age: number;
+  skills: string[];
 };
 
-let method = 'post';
+type Role = {
+  id: number;
+};
 
-fetchWithAuth('s', method as 'post');
+type UserWithRole = User & Role; // Intersection
+
+const user: UserWithRole = {
+  id: 1,
+  name: 'Pavel',
+  age: 29,
+  skills: ['TypeScript'],
+};
