@@ -1,29 +1,34 @@
 interface User {
-  name: string;
-  age: number;
-  skills: string[];
-
-  log: (id: number) => string;
+  login: string;
+  password?: string;
 }
 
-interface Role {
-  roleId: number;
-}
-interface UserWithRole extends User, Role {
-  createdAt: Date;
-}
-
-const user: UserWithRole = {
-  roleId: 1,
-  name: 'Pavel',
-  age: 29,
-  skills: ['TypeScript'],
-  createdAt: new Date(),
-  log(id) {
-    return '';
-  },
+const user: User = {
+  login: 'ya@ya.ru',
+  password: '1',
 };
 
-interface UserDictionary {
-  [index: number]: User;
+const multiply = (first: number, second?: number): number => {
+  if (!second) {
+    return first * first;
+  }
+
+  return first * second;
+};
+
+multiply(5);
+
+interface UserPro {
+  login: string;
+  password?: {
+    type: 'primary' | 'secondary';
+  };
 }
+
+const checkPass = (user: UserPro) => {
+  const t = user.password?.type;
+};
+
+const test = (param?: string) => {
+  const t = param ?? multiply(5);
+};
