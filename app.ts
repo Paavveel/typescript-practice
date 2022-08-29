@@ -1,20 +1,29 @@
-// Type Aliases
-
-type User = {
+interface User {
   name: string;
   age: number;
   skills: string[];
-};
 
-type Role = {
-  id: number;
-};
+  log: (id: number) => string;
+}
 
-type UserWithRole = User & Role; // Intersection
+interface Role {
+  roleId: number;
+}
+interface UserWithRole extends User, Role {
+  createdAt: Date;
+}
 
 const user: UserWithRole = {
-  id: 1,
+  roleId: 1,
   name: 'Pavel',
   age: 29,
   skills: ['TypeScript'],
+  createdAt: new Date(),
+  log(id) {
+    return '';
+  },
 };
+
+interface UserDictionary {
+  [index: number]: User;
+}

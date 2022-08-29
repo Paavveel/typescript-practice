@@ -1,8 +1,11 @@
 "use strict";
-// Type Aliases
 const user = {
-    id: 1,
+    roleId: 1,
     name: 'Pavel',
     age: 29,
     skills: ['TypeScript'],
+    createdAt: new Date(),
+    log(id) {
+        return '';
+    },
 };
