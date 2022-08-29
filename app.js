@@ -1,18 +1,41 @@
 "use strict";
-var StatusCode;
-(function (StatusCode) {
-    StatusCode[StatusCode["SUCCESS"] = 1] = "SUCCESS";
-    StatusCode[StatusCode["IN_PROCESS"] = 2] = "IN_PROCESS";
-    StatusCode[StatusCode["FAILED"] = 3] = "FAILED";
-})(StatusCode || (StatusCode = {}));
-const res = {
-    message: 'Payment success',
-    statusCode: StatusCode.SUCCESS,
+const logId = (id) => {
+    if (typeof id === 'string') {
+        console.log(id);
+    }
+    else if (typeof id === 'number') {
+        console.log(id);
+    }
+    else {
+        console.log(id);
+    }
 };
-// 1 - success
-// 2 - in process
-// 3 - failed
-const action = (status) => { };
-action(StatusCode.SUCCESS);
-action(1);
-const res2 = 1 /* Roles.ADMIN */;
+logId(1);
+logId('asd');
+logId(true);
+const logError = (err) => {
+    if (Array.isArray(err)) {
+        console.log(err);
+    }
+    else {
+        console.log(err);
+    }
+};
+const logObject = (obj) => {
+    if ('a' in obj) {
+        console.log(obj.a);
+    }
+    else {
+        console.log(obj.b);
+    }
+};
+const logMultipleIds = (a, b) => {
+    if (a === b) {
+        console.log(a);
+    }
+    else {
+        console.log(a);
+    }
+};
+let a = 1;
+// a = 2;

@@ -1,26 +1,40 @@
-enum StatusCode {
-  SUCCESS = 1,
-  IN_PROCESS = 2,
-  FAILED = 3,
-}
-
-const res = {
-  message: 'Payment success',
-  statusCode: StatusCode.SUCCESS,
+const logId = (id: string | number | boolean) => {
+  if (typeof id === 'string') {
+    console.log(id);
+  } else if (typeof id === 'number') {
+    console.log(id);
+  } else {
+    console.log(id);
+  }
 };
 
-// 1 - success
-// 2 - in process
-// 3 - failed
+logId(1);
+logId('asd');
+logId(true);
 
-const action = (status: StatusCode) => {};
+const logError = (err: string | string[]) => {
+  if (Array.isArray(err)) {
+    console.log(err);
+  } else {
+    console.log(err);
+  }
+};
 
-action(StatusCode.SUCCESS);
-action(1);
+const logObject = (obj: { a: number } | { b: number }) => {
+  if ('a' in obj) {
+    console.log(obj.a);
+  } else {
+    console.log(obj.b);
+  }
+};
 
-const enum Roles {
-  ADMIN = 1,
-  USER = 2,
-}
+const logMultipleIds = (a: string | number, b: string | boolean) => {
+  if (a === b) {
+    console.log(a);
+  } else {
+    console.log(a);
+  }
+};
 
-const res2 = Roles.ADMIN;
+let a: 1 = 1;
+// a = 2;
