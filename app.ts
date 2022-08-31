@@ -1,35 +1,31 @@
-class User {
-  skills: string[];
+interface ILogger {
+  log(...args: any[]): void;
+  error(...args: any[]): void;
+}
 
-  constructor() {
-    this.skills = [];
+class Logger implements ILogger {
+  log(...args: any[]): void {
+    console.log(...args);
   }
-
-  addSkill(skill: string): void;
-  addSkill(skills: string[]): void;
-  addSkill(skillOrSkills: string | string[]): void {
-    if (typeof skillOrSkills === 'string') {
-      this.skills.push(skillOrSkills);
-    } else {
-      this.skills = this.skills.concat(skillOrSkills);
-    }
+  async error(...args: any[]): Promise<void> {
+    console.log(...args);
   }
 }
 
-const user = new User();
-console.log(user);
-user.addSkill('TypeScript');
-user.addSkill(['React', 'Redux']);
-console.log(user);
-
-function run(distance: number): void;
-function run(distance: string): void;
-function run(distance: number | string): number | string {
-  if (typeof distance === 'number') {
-    return 1;
-  } else {
-    return '';
-  }
+interface IPayable {
+  pay(paymentId: number): void;
+  price?: number;
 }
 
-console.log(run(33));
+interface IDeletable {
+  delete(): void;
+}
+
+class User implements IPayable, IDeletable {
+  delete(): void {
+    throw new Error('Method not implemented.');
+  }
+  pay(paymentId: number | string): void {
+    ////
+  }
+}
