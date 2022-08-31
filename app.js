@@ -3,16 +3,26 @@ class User {
     constructor() {
         this.skills = [];
     }
-    addSkill(skill) {
-        if (typeof skill === 'string') {
-            this.skills.push(skill);
+    addSkill(skillOrSkills) {
+        if (typeof skillOrSkills === 'string') {
+            this.skills.push(skillOrSkills);
         }
         else {
-            this.skills = this.skills.concat(skill);
+            this.skills = this.skills.concat(skillOrSkills);
         }
     }
 }
 const user = new User();
+console.log(user);
 user.addSkill('TypeScript');
 user.addSkill(['React', 'Redux']);
 console.log(user);
+function run(distance) {
+    if (typeof distance === 'number') {
+        return 1;
+    }
+    else {
+        return '';
+    }
+}
+console.log(run(33));
