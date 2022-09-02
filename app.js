@@ -1,8 +1,25 @@
 "use strict";
-const getValue = (obj, key) => obj[key];
-const user = {
-    name: 'Pavel',
-    age: 29,
+// Необходимо написать функцию группировки, которая принимает массив объектов
+// и его ключ, производит группировку по указанному ключу и возращает
+// сгруппированный объект.
+const data = [
+    { group: 1, name: 'a' },
+    { group: 1, name: 'b' },
+    { group: 2, name: 'c' },
+];
+const group = (array, key) => {
+    return array.reduce((map, item) => {
+        const itemKey = item[key];
+        let currEl = map[itemKey];
+        if (Array.isArray(currEl)) {
+            currEl.push(item);
+        }
+        else {
+            currEl = [item];
+        }
+        map[itemKey] = currEl;
+        return map;
+    }, {});
 };
-const userName = getValue(user, 'name');
-console.log(userName);
+const res = group(data, 'group');
+console.log(res);
