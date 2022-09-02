@@ -1,31 +1,12 @@
-class Payment {
-  private date: Date = new Date();
+const nums: Array<number> = [1, 2, 3];
 
-  getDate(this: Payment) {
-    return this.date;
-  }
-
-  getDateArrow = () => {
-    return this.date;
-  };
-}
-
-const p = new Payment();
-
-const user = {
-  id: 1,
-  paymentDate: p.getDate.bind(p),
-  paymentDateArrow: p.getDateArrow,
+const test = async () => {
+  const a = await new Promise<number>((resolve, reject) => {
+    resolve(1);
+  });
 };
 
-console.log(p.getDate());
-console.log(user.paymentDate());
-console.log(user.paymentDateArrow());
-
-class PaymentPersistent extends Payment {
-  save() {
-    return this.getDateArrow();
-  }
-}
-
-console.log(new PaymentPersistent().save());
+const check: Record<string, boolean> = {
+  drive: true,
+  transmission: false,
+};
