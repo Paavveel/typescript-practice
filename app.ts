@@ -1,31 +1,26 @@
-const dataToString = <T>(data: T): string | undefined => {
-  if (Array.isArray(data)) {
-    return data.toString();
-  }
+// Необходимо написать функцию сортировки любых
+// объектов, которые имеют id по убыванию и по возрастанию
 
-  switch (typeof data) {
-    case 'string':
-      return data;
-      break;
+const data = [
+  { id: 2, name: 'Петя' },
+  { id: 1, name: 'Вася' },
+  { id: 3, name: 'Надя' },
+];
 
-    case 'number':
-    case 'symbol':
-    case 'bigint':
-    case 'boolean':
-    case 'function':
-      return data.toString();
-      break;
+interface ID {
+  id: number;
+}
 
-    case 'object':
-      return JSON.stringify(data);
-      break;
-    default:
-      return undefined;
-      break;
-  }
+const sort = <T extends ID>(data: T[], type: 'asc' | 'desc' = 'asc'): T[] => {
+  return data.sort((a, b) => {
+    switch (type) {
+      case 'asc':
+        return a.id - b.id;
+      case 'desc':
+        return b.id - a.id;
+    }
+  });
 };
 
-console.log(dataToString(3));
-console.log(dataToString(true));
-console.log(dataToString(['a', 'b']));
-console.log(dataToString({ a: 1 }));
+console.log(sort(data, 'desc'));
+console.log(sort(data));
